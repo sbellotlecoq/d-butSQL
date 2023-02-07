@@ -1,0 +1,113 @@
+2.2.1. MOOCademy -----------------------------------------------------------------------
+
+Tu dois créer une plateforme d'apprentissage en ligne. Il y a plein de cours. Chaque cours a un titre et une description. Enfin, chaque cours a plusieurs leçons, qui ont un titre et un body.
+
+- Table COURS DISPENSE
+attributs : NOM du cours - DESCRIPTION du cours  
+id 1		ANG         apprentissage	    
+id 2		ANG         perfectionnement 	    
+id 3		ANG         Master	   	    
+
+- Table LECON
+attributs : FOREIGN KEY		TITRE				DESCRIPTION
+id 1	     id 1 		lecon  N°1			find brian IN THE KITCHEN  and learn english
+id 2	     id 1 		lecon  N°2			find brian IN THE bathroom and learn english
+id 3	     id 2 		lecon  N°1			find brian IN Disneyland and learn english
+
+relations entre tables : Relation 1-N UN COURS A PLUSIEURS LESSON MAIS UNE LESSON APPARTIENT A UN COURS PRECIS
+
+Chaque cour a un nom  et une description --> Chaque cour a plusieurs lessons associées.
+
+Chaque lesson est associée a un cours et possède un titre et une description.
+
+2.2.2. The Hacking Pinterest----------------------------------------------------------------
+
+Tu veux faire de la concurrence à Pinterest, donc tu voudrais créer un site où les utilisateurs peuvent créer des "pins". Chaque pin contient l'URL d'une image sur le net. Les utilisateurs peuvent commenter les pins, mais ne peuvent pas commenter les commentaires.
+
+- Table USERS
+attributs :  	NOM	 	PRENOM
+id 1		Pierre 		Richard
+id 2		Sam        	faitpeur	    
+id 3		Kevin		pourquoipas
+
+Relation 1-N entre USERS ET PIN car sert à modéliser une appartenance, un user a un ou plusieurs PIN mais un PIN n'a qu'un seul user
+
+- Table PIN
+attributs :   	Nom PIN 	URL du PIN	Pin créé par (FK User)
+id 1		IMG1		www.blabla.fr		3
+id 2		IMG2		www.blublu.fr		1	
+id 3		IMG3		www.bloblo.fr		2
+
+Relation 1-N entre USERS ET PIN car sert à modéliser une appartenance, Un PIN à un ou plusieurs commentaire mais chaque commentaire appartient à un PIN
+
+- Table COMMENTAIRE
+attributs :	Foreign FK PIN		COMMENTAIRE	     Commenté par (FK User)	        
+id 1	 		1		cestdelamerde			2					
+id 2	 		1		nancestbien			1									
+id 3							  										
+
+2.2.3. The Hacking News------------------------------------------------------------------------
+
+Tu veux créer un message board à la Hacker News. Les utilisateurs peuvent poster des liens. Les autres utilisateurs peuvent commenter les liens soumis, ou commenter les commentaires (mais on ne peut pas aller plus loin qu'un commentaire de commentaire). Comment faire en sorte qu'un commentaire sache où dans la hiérarchie il se trouve ? 🤔
+
+- Table USERS
+attributs :  	NOM	 	PRENOM
+id 1		Pierre 		Richard
+id 2		Sam        	faitpeur	    
+id 3		Kevin		pourquoipas
+
+Relation 1-N entre USERS ET LINKS car sert à modéliser une appartenance, un user a un ou plusieurs LINKS mais un LINK n'a qu'un seul user
+
+- Table LINKS
+attributs :   	Link créé par (FK User)		Link
+id 1			2			www.lien1.fr
+id 2			3			www.lien2.fr
+id 3			1			www.lien3.fr
+
+Relation 1-N entre LINKS ET COMMENTAIRE car sert à modéliser une appartenance, un LINK a un ou plusieurs COMMENTAIRES mais un COMMENTAIRE appartient à un seul link
+
+- Table COMMENTAIRES
+attributs :  	FK Links  	FKuser qui commente	COMMENTAIRE	
+id 1		   1		  	3		cesttropbien
+id 2		   2		  	1		c'estpasmal
+id 3		   2		  	1		ahouicesbien
+
+Relation 1-1 entre COMMENT ET COMMENT DU COMMENT exclusivité dans la relation entre comment et comment du comment.
+
+- Table COMMENT DU COMMENT
+attributs :  	FK Comment	FKuser qui commente	COMMENTAIRE	
+id 1		   1		  	3		jesuisok
+id 2	   
+id 3	
+
+
+
+- EST CE QU IL FAUT CETTE TABLE ? %%%%%%%%%%%
+Relation 1-N entre MESSAGE BOARD ET LES AUTRES TABLES ???
+
+- Table MESSAGEBOARD
+attributs :  	FK links 	FK COMMENT 	FK User Comment		FK COMMENT DU COMMENT	     FK User comment du comment
+id 1		   1		      1			3			1				3
+id 2			
+id 3	
+
+2.2.4. The Hacking Class
+
+Tu vas encore faire un site d'éducation en ligne. Dans ce site il y aura des élèves qui peuvent s'inscrire à un seul cours. Un cours pourra avoir plusieurs élèves
+
+- Table USERS
+attributs :  	NOM	 	PRENOM
+id 1		Pierre 		Richard
+id 2		Sam        	faitpeur	    
+id 3		Kevin		pourquoipas
+
+Relation 1-N
+
+- Table COURS
+attributs :  	Cours 
+id 1		ANGLAIS				
+id 2		FRANCAIS			
+id 3		EDUCATIONSEXUELLE	
+
+	
+

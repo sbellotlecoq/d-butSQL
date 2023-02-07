@@ -1,0 +1,24 @@
+Récupérer tous les albums : SELECT * FROM albums;
+
+Récupérer tous les albums dont le titre contient "Great" (indice) : SELECT * FROM albums WHERE Title LIKE '%great%';
+
+Donner le nombre total d'albums contenus dans la base (sans regarder les id bien sûr) : select count(AlbumId) from Albums;
+
+Supprimer tous les albums dont le nom contient "music" : DELETE FROM albums WHERE Title LIKE '%music%'; ATTENTION PAS ETOILE
+
+Récupérer tous les albums écrits par AC/DC : SELECT * FROM Albums WHERE ArtistId = 1
+
+Récupérer tous les titres des albums de AC/DC : "tuyaux de thomas limite l'affichage" SELECT * FROM tracks limit 1; select * from tracks where AlbumId = 1 or AlbumId = 4;
+
+Récupérer la liste des titres de l'album "Let There Be Rock" : select * from tracks where AlbumId = 4
+
+Afficher le prix de cet album ainsi que sa durée totale : SELECT SUM(UnitPrice) FROM Tracks WHERE AlbumId = 4
+WHERE condition; SELECT SUM(Milliseconds) FROM Tracks WHERE AlbumId = 4
+
+Afficher le coût de l'intégralité de la discographie de "Deep Purple" = select sum(UnitPrice) from tracks join albums on albums.AlbumId = tracks.AlbumId where albums.ArtistId = 58;                                                                                                                                                                                     
+Créer l'album de ton artiste favori en base, en renseignant correctement les trois tables albums, artists et tracks : CREATE TABLE `favoriteSam` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `albums` TEXT,`artists` INTEGER,`tracks` TEXT);
+
+Pour créer un docteur dans notre base de données il suffit d'écrire : INSERT INTO doctors (name, age, specialty) VALUES ('Dr. Dolladille', 45, 'Dentist');
+
+INSERT INTO favoriteSam (albums, artists, tracks) VALUES ('Physical graphitti', 'LedZep', 'the song remain the_same');
+
